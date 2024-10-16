@@ -25,7 +25,7 @@ class CarreraFactory extends Factory
             'nombreCarrera' =>fake()->unique()->words(5, true),
             'nombreMediano' =>fake()->unique()->word(),
             'nombreCorto' =>fake()->unique()->lexify('?????'),
-            'id_depto' => Depto::factory(),
+            'depto_id' => Depto::factory(),
             // 'depto_id' => Depto::inRandomOrder()->first()->id, // Selecciona un ID de depto aleatorio
             
 

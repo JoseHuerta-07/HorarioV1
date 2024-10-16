@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Alumno;
 use App\Models\Carrera;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -10,7 +11,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class AlumnoFactory extends Factory
 {
-    protected $model = Carrera::class;
+    protected $model = Alumno::class;
     /**
      * Define the model's default state.
      *

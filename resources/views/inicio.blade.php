@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -11,9 +11,7 @@
     <title>ITPN</title>
 </head>
 
-<body style="background-color:#e5e5e5">
-
-
+<body>
     @include('menu')
     @if (Auth::check())
         <div>
