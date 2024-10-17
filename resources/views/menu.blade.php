@@ -5,11 +5,6 @@
             aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -48,7 +43,7 @@
                         type="text"
                         placeholder="Search"
                     />
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                    <button class="btn btn-outline-success my-2 my-sm-0 gap-1" type="submit">
                         Search
                     </button>
                 </form>
