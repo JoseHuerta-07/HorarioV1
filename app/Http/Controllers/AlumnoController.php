@@ -37,7 +37,7 @@ class AlumnoController extends Controller
         $alumno = new Alumno;
         $desabilitado = "";
         $accion = "crear";
-        $txtbtn = "guardar";
+        $txtbtn = "Guardar";
         return view("alumnos2/frm", compact("alumnos", "alumno", "accion", "txtbtn", 'desabilitado', 'carreras'));
 
     }
