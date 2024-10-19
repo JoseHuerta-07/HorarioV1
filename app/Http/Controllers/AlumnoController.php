@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alumno;
+use App\Models\Depto;
 use Illuminate\Http\Request;
 
 class AlumnoController extends Controller
@@ -25,9 +26,13 @@ class AlumnoController extends Controller
 
     public function index()
     {
+        $alumnos = Alumno::with('carrera.depto')
+                            ->where('nombre','like','d%')
+                            ->paginate(5);
 
-        $alumnos = Alumno::with('carrera')->paginate(5);
-        return view("alumnos2/index", compact("alumnos"));
+        $alumnos = Alumno::with('carrera.depto')->paginate(5);
+        $deptos = Depto::get();
+        return view("alumnos2/index", compact("alumnos","deptos"));
     }
 
     public function create()
@@ -77,9 +82,6 @@ class AlumnoController extends Controller
         return view("alumnos2.frm", compact('alumnos', 'alumno', 'carreras', 'accion', 'txtbtn', 'desabilitado'));
     }
     
-
-
-
     public function update(Request $request, Alumno $alumno)
     {
         // Validar datos

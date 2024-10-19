@@ -18,7 +18,7 @@ class DeptoFactory extends Factory
     {
         return [
             'idDepto' => fake()->unique()->bothify('##'),
-            'nombreDepto' => fake()->unique()->words('3', true),
+            'nombreDepto' => fake()->unique()->jobTitle('3', true),
             'nombreMediano' => fake()->unique()->word(),
             'nombreCorto' => fake()->unique()->lexify('?????'),
           

@@ -13,27 +13,27 @@
     @endif
 
     <div class="container text-center mt-5">
-        <h1 class="custom-title">¡Bienvenido a la página de carreras!</h1>
+        <h1 class="custom-title">Catálago de Carreras<i class="bi bi-journal-bookmark-fill"></i></h1>
     </div>
     
-    <div class="container mt-12 text-center">
+    <div class="table-responsive text-center">
         <a href="{{ route('carreras.create') }}">
-            <img src="{{ asset('img/icono-nuevo.png') }}" width="50px">
+        <button class="btn btn-success mb-2">
+                <i class="bi bi-plus-lg"></i>
+            </button>
         </a>
 
-        <table class="table table-primary">
+        <table class="table table-bordered table-dark tex-center" data-bs-theme="dark">
             <thead>
-                <tr>
+                <tr class="table table-success">
                     <th scope="col">ID Carrera</th>
                     <th scope="col">Nombre Carrera</th>
                     <th scope="col">Nombre Mediano</th>
                     <th scope="col">Nombre Corto</th>
-                    <th scope="col">Departamento</th>
+                    <th scope="col">ID Departamento</th>
                     <th scope="col">Creado</th>
                     <th scope="col">Actualizado</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
+                    <th scope="col" colspan="3">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,9 +46,9 @@
                         <td>{{ $carrera->depto->idDepto ?? 'Sin Departamento' }}</td>
                         <td>{{ $carrera->created_at }}</td>
                         <td>{{ $carrera->updated_at }}</td>
-                        <td><a href="{{ route('carreras.show', $carrera->idCarrera) }}"><img src="{{ asset('img/icono-ver.png') }}" width="50px"></a></td>
-                        <td><a href="{{ route('carreras.eliminar', $carrera->idCarrera) }}"><img src="{{ asset('img/icono-delete.png') }}" width="50px"></a></td>
-                        <td><a href="{{ route('carreras.edit', $carrera->idCarrera) }}"><img src="{{ asset('img/icono-editar.png') }}" width="50px"></a></td>
+                        <td><a href="{{ route('carreras.show', $carrera->idCarrera) }}"><button class="btn btn-primary"><i class="bi bi-eye-fill"></button></i></a></td>
+                        <td><a href="{{ route('carreras.eliminar', $carrera->idCarrera) }}"><button class="btn btn-danger"><i class="bi bi-trash"></i></button></a></td>
+                        <td><a href="{{ route('carreras.edit', $carrera->idCarrera) }}"><button class="btn btn-warning"><i class="bi bi-pencil-square"></i></button></a></td>
                     </tr>
                 @endforeach
             </tbody>

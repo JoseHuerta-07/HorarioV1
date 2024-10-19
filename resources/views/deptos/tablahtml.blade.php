@@ -13,24 +13,24 @@
     @endif
 
     <div class="container text-center mt-5">
-        <h1 class="custom-title">¡Bienvenido a la página de departamentos!</h1>
+        <h1 class="custom-title">Catálago de Departamentos <i class="bi bi-building"></i></h1>
     </div>
     <div class="container mt-12 text-center">
         <a href="{{ route('deptos.create') }}">
-            <img src="{{ asset('img/icono-nuevo.png') }}" width="50px">
+        <button class="btn btn-success mb-2">
+        <i class="bi bi-building-fill-add"></i>
+            </button>
         </a>
            
-        <table class="table table-primary">
+        <table class="table table-bordered table-dark tex-center" data-bs-theme="dark">
             <thead>
-                <tr>
+                <tr class="table table-primary">
                     <th scope="col">ID</th>
                     <th scope="col">ID Depto</th> <!-- Nuevo campo -->
                     <th scope="col">Nombre del Depto</th>
                     <th scope="col">Nombre Mediano</th> <!-- Nuevo campo -->
                     <th scope="col">Nombre Corto</th> <!-- Nuevo campo -->
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
+                    <th scope="col" colspan="3">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,9 +41,9 @@
                         <td>{{ $departamento->nombreDepto }}</td>
                         <td>{{ $departamento->nombreMediano }}</td> <!-- Nuevo campo -->
                         <td>{{ $departamento->nombreCorto }}</td> <!-- Nuevo campo -->
-                        <td><a href="{{ route('deptos.show', $departamento->id) }}"><img src="{{ asset('img/icono-ver.png') }}" width="50px"></a></td>
-                        <td><a href="{{ route('deptos.eliminar', $departamento->id) }}"><img src="{{ asset('img/icono-delete.png') }}" width="50px"></a></td>
-                        <td><a href="{{ route('deptos.edit', $departamento->id) }}"><img src="{{ asset('img/icono-editar.png') }}" width="50px"></a></td>
+                        <td><a href="{{ route('deptos.show', $departamento->id) }}"><button class="btn btn-primary"><i class="bi bi-eye-fill"></button></i></a></td>
+                        <td><a href="{{ route('deptos.eliminar', $departamento->id) }}"><button class="btn btn-danger"><i class="bi bi-trash"></i></button></a></td>
+                        <td><a href="{{ route('deptos.edit', $departamento->id) }}"><button class="btn btn-warning"><i class="bi bi-pencil-square"></i></button></a></td>
                     </tr>
                 @endforeach
             </tbody>

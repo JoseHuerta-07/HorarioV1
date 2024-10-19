@@ -5,11 +5,12 @@
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     }
 </style>
+
 <div class="container">
     @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
     @endif
 
     <div class="container text-center mt-5">
@@ -17,12 +18,12 @@
     </div>
     <div class="table-responsive text-center">
         <a href="{{ route('alumnos.create') }}">
-           <button class="btn btn-success mb-2">
-           <i class="bi bi-plus-lg"></i>
-           </button>
+            <button class="btn btn-success mb-2">
+                <i class="bi bi-plus-lg"></i>
+            </button>
         </a>
-           
-        <table class="table table-dark text-center" data-bs-theme="dark">
+
+        <table class="table table-bordered table-dark text-center" data-bs-theme="dark">
             <thead>
                 <tr class="table table-secondary">
                     <th scope="col">ID</th>
@@ -33,28 +34,30 @@
                     <th scope="col">Sexo</th> <!-- Nuevo campo -->
                     <th scope="col">Email</th>
                     <th scope="col">Carrera</th> <!-- Nuevo campo -->
+                    <th scope="col">Departamento</th> <!-- Nuevo campo -->
                     <th scope="col">Creado</th>
                     <th scope="col">Actualizado</th>
-                    <th scope="col" colspan="3">Acciones</th> 
+                    <th scope="col" colspan="3">Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($alumnos as $alumno)
-                    <tr>
-                        <td scope="row">{{ $alumno->id }}</td>
-                        <td>{{ $alumno->noctrl }}</td> <!-- Nuevo campo -->
-                        <td>{{ $alumno->nombre }}</td>
-                        <td>{{ $alumno->apellidop }}</td>
-                        <td>{{ $alumno->apellidom }}</td> <!-- Nuevo campo -->
-                        <td>{{ $alumno->sexo }}</td> <!-- Nuevo campo -->
-                        <td>{{ $alumno->email }}</td>
-                        <td>{{ $alumno->carrera->nombreCarrera ?? 'Sin Carrera' }}</td>
-                        <td>{{ $alumno->created_at }}</td>
-                        <td>{{ $alumno->updated_at }}</td>
-                        <td><a href="{{ route('alumnos.show', $alumno->id) }}"><button class="btn btn-primary" ><i class="bi bi-eye-fill"></button></i></a></td>
-                        <td><a href="{{ route('alumnos.eliminar', $alumno->id) }}"><button class="btn btn-danger"><i class="bi bi-trash"></i></button></a></td>
-                        <td><a href="{{ route('alumnos.edit', $alumno->id) }}"><button class="btn btn-warning"><i class="bi bi-pencil-square"></i></button></a></td>
-                    </tr>
+                <tr>
+                    <td scope="row">{{ $alumno->id }}</td>
+                    <td>{{ $alumno->noctrl }}</td> <!-- Nuevo campo -->
+                    <td>{{ $alumno->nombre }}</td>
+                    <td>{{ $alumno->apellidop }}</td>
+                    <td>{{ $alumno->apellidom }}</td> <!-- Nuevo campo -->
+                    <td>{{ $alumno->sexo }}</td> <!-- Nuevo campo -->
+                    <td>{{ $alumno->email }}</td>
+                    <td>{{ $alumno->carrera->nombreCarrera ?? 'Sin Carrera' }}</td>
+                    <td>{{ $alumno->carrera->depto->nombreDepto }}</td>
+                    <td>{{ $alumno->created_at }}</td>
+                    <td>{{ $alumno->updated_at }}</td>
+                    <td><a href="{{ route('alumnos.show', $alumno->id) }}"><button class="btn btn-primary"><i class="bi bi-eye-fill"></button></i></a></td>
+                    <td><a href="{{ route('alumnos.eliminar', $alumno->id) }}"><button class="btn btn-danger"><i class="bi bi-trash"></i></button></a></td>
+                    <td><a href="{{ route('alumnos.edit', $alumno->id) }}"><button class="btn btn-warning"><i class="bi bi-pencil-square"></i></button></a></td>
+                </tr>
                 @endforeach
             </tbody>
         </table>
@@ -62,3 +65,20 @@
         {{ $alumnos->links() }}
     </div>
 </div>
+
+<!-- Lista de Departamentos -->
+<ul>
+    @foreach($deptos as $depto)
+    <li>{{ $depto->nombreDepto }}</li>
+    <ul>
+        @foreach ($depto->carreras as $carrera)
+        <li>{{ $carrera->nombreCarrera }}</li>
+    <ul>
+        @foreach($carrera->alumnos as $alumno)
+        <li>{{ $alumno->nombre }}</li>
+        @endforeach
+    </ul>
+    </ul>
+    @endforeach
+    @endforeach
+</ul>
