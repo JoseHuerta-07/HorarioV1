@@ -13,7 +13,7 @@
     @endif
 
     <div class="container text-center mt-5">
-        <h1 class="custom-title">Catálago de Carreras<i class="bi bi-journal-bookmark-fill"></i></h1>
+        <h1 class="custom-title">Catálago de Carreras <i class="bi bi-journal-bookmark-fill"></i></h1>
     </div>
     
     <div class="table-responsive text-center">

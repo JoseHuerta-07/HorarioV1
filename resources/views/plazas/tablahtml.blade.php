@@ -11,7 +11,7 @@
     {{ session('success') }}
   </div>
   @endif
-  <h1 class="custom-title">Catálago de Plazas</h1>
+  <h1 class="custom-title">Catálago de Plazas <i class="bi bi-pin-map-fill"></i></h1>
 </div>
 
 <div class="table-responsive-md text-center">
@@ -42,9 +42,9 @@
         <td>{{ $plaza->nombreplaza }}</td>
         <td>{{ $plaza->created_at }}</td>
         <td>{{ $plaza->updated_at }}</td>
-        <td><a href=" {{ route('plazas.show', $plaza->id)}}"> <img src=" {{ asset('img\icono-ver.png') }}" width="50px"> </a></td>
-        <td><a href="{{ route('plazas.eliminar', $plaza->id)}}"> <img src=" {{ asset('img\icono-delete.png') }}" width="50px"> </a></td>
-        <td><a href="{{ route('plazas.edit', $plaza->id)}}"> <img src=" {{ asset('img\icono-editar.png') }}" width="50px"> </a></td>
+        <td><a href=" {{ route('plazas.show', $plaza->id)}}"><button class="btn btn-primary"><i class="bi bi-eye-fill"></button></i></a></td>
+        <td><a href="{{ route('plazas.eliminar', $plaza->id)}}"><button class="btn btn-danger"><i class="bi bi-trash"></i></button></a></td>
+        <td><a href="{{ route('plazas.edit', $plaza->id)}}"><button class="btn btn-warning"><i class="bi bi-pencil-square"></i></button></a></td>
       </tr>
       @endforeach
     </tbody>

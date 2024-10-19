@@ -30,6 +30,8 @@
                     <th scope="col">Nombre del Depto</th>
                     <th scope="col">Nombre Mediano</th> <!-- Nuevo campo -->
                     <th scope="col">Nombre Corto</th> <!-- Nuevo campo -->
+                    <th scope="col">Creado</th>
+                    <th scope="col">Actualizado</th>
                     <th scope="col" colspan="3">Acciones</th>
                 </tr>
             </thead>
@@ -41,6 +43,8 @@
                         <td>{{ $departamento->nombreDepto }}</td>
                         <td>{{ $departamento->nombreMediano }}</td> <!-- Nuevo campo -->
                         <td>{{ $departamento->nombreCorto }}</td> <!-- Nuevo campo -->
+                        <td>{{ $departamento->created_at }}</td>
+                        <td>{{ $departamento->updated_at }}</td>
                         <td><a href="{{ route('deptos.show', $departamento->id) }}"><button class="btn btn-primary"><i class="bi bi-eye-fill"></button></i></a></td>
                         <td><a href="{{ route('deptos.eliminar', $departamento->id) }}"><button class="btn btn-danger"><i class="bi bi-trash"></i></button></a></td>
                         <td><a href="{{ route('deptos.edit', $departamento->id) }}"><button class="btn btn-warning"><i class="bi bi-pencil-square"></i></button></a></td>
